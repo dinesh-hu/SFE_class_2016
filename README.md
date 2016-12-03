@@ -45,35 +45,37 @@ rm(list = ls(all = TRUE))
 graphics.off()
 
 # Declare stock price variables
-S0    = 49                          # initial stock price
-sig   = 0.2                         # volatility 
+S0    = 49                        # current stock price
+sig   = 0.2                       # volatility 
 
 # Declare option pricing variables
-r     = 0.05                        # interest rate
-K     = 50                          # strikeprice
-t0    = 0/52                        # current time (1 week = 1/52)
-mat   = 20/52                       # maturity
+r     = 0.05                      # interest rate
+K     = 50                        # strike price
+t0    = 0/52                      # current time (1 week = 1/52)
+mat   = 20/52                     # maturity
 
 # Parameters for calculations
-dt    = 0.2/52                      # period between steps
-np    = (mat - t0)/dt               # number of periods
-t     = seq(t0, mat, dt)            # maturity - t0 divided in n intervals
-tau   = mat - t                     # times to maturity
+dt    = 0.2/52                    # period between steps
+np    = (mat - t0)/dt             # number of periods
+t     = seq(t0, mat, dt)          # maturity - t0 divided in n intervals
+tau   = mat - t                   # times to maturity
 
 # Simulate first stock price path
-set.seed(924)                       # in order to make the simulation replicable
-Wt = c(0, cumsum(sqrt(dt) * rnorm(np)))
-S = S0 * exp((r - 0.5 * sig^2) * t + sig * Wt)
+set.seed(924)                     # in order to make the simulation replicable
+Wt    = c(0, cumsum(sqrt(dt) * rnorm(np)))
+S     = S0 * exp((r - 0.5 * sig^2) * t + sig * Wt)
 
 # Calculate buying and selling timepoints
-n           = 1
-m           = 1
-p           = 1
-Buy         = (S[1:(length(S) - 1)] < K) * (S[2:length(S)] > K)
-Sell        = (S[1:(length(S) - 1)] > K) * (S[2:length(S)] < K)
-buytime     = numeric(sum(Buy))     # predefined zero vector for efficiency
-selltime    = numeric(sum(Sell))    # length of buy/sell time is the number of purchases
+Buy         = (S[1:np] < K) * (S[2:(np + 1)] > K)
+Sell        = (S[1:np] > K) * (S[2:(np + 1)] < K)
 hedge.costs = numeric(sum(Buy) + sum(Sell) + 1)
+buytime     = numeric(sum(Buy))   # predefined zero vector for efficiency
+selltime    = numeric(sum(Sell))  # length of buy/sell time is the number of purchases/sales
+
+# Define counting variables for calculations
+n   = 1
+m   = 1
+p   = 1
 
 for (k in 1:length(Buy)) {
     if (Buy[k] == 1) {
@@ -110,19 +112,21 @@ StopLossStrat1 = data.frame(HedgeCosts = hedge.costs, CumHedgeCosts = cumsum(hed
                             row.names = c(1:(length(hedge.costs) - 1), "Maturity"))
 
 # Simulate second stock price path
-set.seed(288)                       # in order to make the simulation replicable
+set.seed(288)  # in order to make the simulation replicable
 Wt  = c(0, cumsum(sqrt(dt) * rnorm(np)))
 S   = S0 * exp((r - 0.5 * sig^2) * t + sig * Wt)
 
 # Calculate buying and selling timepoints
-n           = 1
-m           = 1
-p           = 1
-Buy         = (S[1:(length(S) - 1)] <= K) * (S[2:length(S)] > K)
-Sell        = (S[1:(length(S) - 1)] >= K) * (S[2:length(S)] < K)
-buytime     = numeric(sum(Buy))     # predefined zero vector for efficiency
-selltime    = numeric(sum(Sell))    # length of buy/sell time is the number of purchases
+Buy         = (S[1:np] < K) * (S[2:(np + 1)] > K)
+Sell        = (S[1:np] > K) * (S[2:(np + 1)] < K)
 hedge.costs = numeric(sum(Buy) + sum(Sell) + 1)
+buytime     = numeric(sum(Buy))   # predefined zero vector for efficiency
+selltime    = numeric(sum(Sell))  # length of buy/sell time is the number of purchases/sales
+
+# Define counting variables for calculations
+n   = 1
+m   = 1
+p   = 1
 
 for (k in 1:length(Buy)) {
     if (Buy[k] == 1) {
