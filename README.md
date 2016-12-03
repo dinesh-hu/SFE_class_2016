@@ -9,10 +9,10 @@ Name of Quantlet : SFEStopLossLogic
 
 Published in : Statistics of Financial Markets I
 
-Description : Generates and plots the path of two stocks and marks the corresponding buying
-and selling time points of a stop-loss hedging strategy.
+Description : 'Generates and plots the path of two stocks and marks the corresponding buying
+and selling time points of a stop-loss hedging strategy'
 
-Keywords : 'stop-loss, hedging, asset, black-scholes, call, simulation, cost, delta, strategy'
+Keywords : stop-loss, hedging, asset, black-scholes, call, simulation, cost, delta, strategy
 
 See also : SFSstoploss
 
@@ -29,8 +29,8 @@ Input:
 - mat: Maturity
 - dt: Time period between steps.
 
-Output : A plot of two simulated stocks with buy and sell times within the stop-loss hedging strategy
-and two tables of the corresponding hedging costs.
+Output : 'A plot of two simulated stocks with buy and sell times within the stop-loss hedging strategy
+and two tables of the corresponding hedging costs.'
 
 ```
 
