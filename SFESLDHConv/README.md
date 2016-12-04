@@ -1,20 +1,20 @@
 
 [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/banner.png" width="884" alt="Visit QuantNet">](http://quantlet.de/)
 
-## [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFEDeltaHedgeGraph** [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/)
+## [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFESLDHConv** [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/)
 
 ```yaml
 
-Name of Quantlet : SFEDeltaHedgeGraph
+Name of Quantlet : SFESLDHConv
 
 Published in : Statistics of Financial Markets I
 
-Description : 'Generates and plots a graphical describtion of the logic behind delta hedging and
-calulates corresponding heding costs for given parameters'
+Description : 'Plots a log-log-graph of the performance of stop-loss and delta hedging for decreasing
+observation frequancy'
 
-Keywords : delta, hedging, asset, black-scholes, call, simulation, cost, delta, strategy
+Keywords : delta, stop-loss, hedging, convergence, asset, black-scholes, call, simulation, cost, delta, strategy
 
-See also : 'SFESLDHPerf, SFESLDHConv, SFEStopLossLogic, SFEDeltaHedgeGraph, SFSstoploss, SFEDeltaHedging,
+See also : 'SFESLDHPerf, SFEStopLossLogic, SFEDeltaHedgeGraph, SFSstoploss, SFEDeltaHedging,
 SFEDeltahedgingLogic, SFEDeltahedgingdepend'
 
 Author : Simon Gstöhl, Florian Schulz
@@ -27,9 +27,10 @@ Input:
 - r: Risk free interest rate
 - K: Strike price
 - t0: Starting time (1 week = 1/52)
-- mat: Maturity.
+- mat: Maturity
+- steps: number of calculation steps.
 
-Output : A plot of the logic of delta hedging and assosiated costs with given parameters
+Output : A log-log-plot of a performance measure against decreasing observation frequancy.
 
 ```
 
