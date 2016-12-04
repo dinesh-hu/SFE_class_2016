@@ -60,8 +60,8 @@ np    = (mat - t0)/dt             # number of periods
 t     = seq(t0, mat, dt)          # maturity - t0 divided in n intervals
 tau   = mat - t                   # times to maturity
 
-# Simulate second stock price path
-set.seed(288)  # in order to make the simulation replicable
+# Simulate first stock price path
+set.seed(288)                     # in order to make the simulation replicable
 Wt  = c(0, cumsum(sqrt(dt) * rnorm(np)))
 S   = S0 * exp((r - 0.5 * sig^2) * t + sig * Wt)
 
@@ -116,7 +116,7 @@ StopLossStrat1 = data.frame(HedgeCosts = hedge.costs, CumHedgeCosts = cumsum(hed
                             row.names = c(1:(length(hedge.costs) - 1), "Maturity"))
 
 
-# Simulate first stock price path
+# Simulate second stock price path
 set.seed(924)                     # in order to make the simulation replicable
 Wt    = c(0, cumsum(sqrt(dt) * rnorm(np)))
 S     = S0 * exp((r - 0.5 * sig^2) * t + sig * Wt)
