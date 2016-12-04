@@ -34,9 +34,6 @@ Output : Table of hedge performance for stop-loss and delta and different observ
 
 ```
 
-![Picture1](SFEDeltaHedgeGraph.png)
-
-
 ### R Code:
 ```r
 
