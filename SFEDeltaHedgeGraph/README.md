@@ -34,7 +34,7 @@ and two tables of the corresponding hedging costs.'
 
 ```
 
-![Picture1](StopLossLogic.png)
+![Picture1](SFEDeltaHedgeGraph.png)
 
 
 ### R Code:
