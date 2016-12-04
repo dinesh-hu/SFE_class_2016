@@ -1,14 +1,15 @@
 
-Name of Quantlet : SFEStopLossLogic
+Name of Quantlet : SFEDeltaHedgeGraph
 
 Published in : Statistics of Financial Markets I
 
-Description : 'Generates and plots the path of two stocks and marks the corresponding buying
-and selling time points of a stop-loss hedging strategy'
+Description : 'Generates and plots a graphical describtion of the logic behind delta hedging and
+calulates corresponding heding costs for given parameters'
 
-Keywords : stop-loss, hedging, asset, black-scholes, call, simulation, cost, delta, strategy
+Keywords : delta, hedging, asset, black-scholes, call, simulation, cost, delta, strategy
 
-See also : SFSstoploss
+See also : 'SFESLDHPerf, SFESLDHConv, SFEStopLossLogic, SFEDeltaHedgeGraph, SFSstoploss, SFEDeltaHedging,
+SFEDeltahedgingLogic, SFEDeltahedgingdepend'
 
 Author : Simon Gstöhl, Florian Schulz
 
@@ -20,8 +21,6 @@ Input:
 - r: Risk free interest rate
 - K: Strike price
 - t0: Starting time (1 week = 1/52)
-- mat: Maturity
-- dt: Time period between steps.
+- mat: Maturity.
 
-Output : 'A plot of two simulated stocks with buy and sell times within the stop-loss hedging strategy
-and two tables of the corresponding hedging costs.'
+Output : A plot of the logic of delta hedging and assosiated costs with given parameters
