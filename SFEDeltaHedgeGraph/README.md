@@ -44,23 +44,23 @@ rm(list = ls(all = TRUE))
 graphics.off()
 
 # Declare stock price variables
-S0 =    49                  # current stock price
-sig =   0.2                 # volatility 
+S0    = 49                  # current stock price
+sig   = 0.2                 # volatility 
 
 # Declare option pricing variables
-r =     0.05                # interest rate
-K =     50                  # strike price
-t0 =    0/52                # current time (1 week = 1/52)
-mat =   20/52               # maturity
-tau =   10/52               # time to maturity
+r     = 0.05                # interest rate
+K     = 50                  # strike price
+t0    = 0/52                # current time (1 week = 1/52)
+mat   = 20/52               # maturity
+tau   = 10/52               # time to maturity
 
 # Black-Scholes option price
-X =     seq(40, 60, 0.5)    # range for the stock price
-y =     (log(X/K) + (r - (sig^2)/2) * tau)/(sig * sqrt(tau))
-C =     X * pnorm(y + sig * sqrt(tau)) - exp(-r * tau) * K * pnorm(y)
+X     = seq(40, 60, 0.5)    # range for the stock price
+y     = (log(X/K) + (r - (sig^2)/2) * tau)/(sig * sqrt(tau))
+C     = X * pnorm(y + sig * sqrt(tau)) - exp(-r * tau) * K * pnorm(y)
 
 # Delta at point X[x]
-x =     round(length(X)/2 + 2)
+x     = round(length(X)/2 + 2)
 Delta = pnorm(y[x] + sig * sqrt(tau))
 
 # Plot
