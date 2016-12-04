@@ -14,7 +14,8 @@ calulates corresponding heding costs for given parameters'
 
 Keywords : delta, hedging, asset, black-scholes, call, simulation, cost, delta, strategy
 
-See also : SFSstoploss
+See also : 'SFESLDHPerf, SFESLDHConv, SFEStopLossLogic, SFEDeltaHedgeGraph, SFSstoploss, SFEDeltaHedging,
+SFEDeltahedgingLogic, SFEDeltahedgingdepend'
 
 Author : Simon Gstöhl, Florian Schulz
 
